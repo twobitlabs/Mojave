@@ -10,6 +10,18 @@
 		86E2AC7B1D7263E0005FCE31 /* Mojave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; };
 		86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */; };
 		86E2AC821D7263E0005FCE31 /* Mojave.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E2AC741D7263E0005FCE31 /* Mojave.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86E2AC8E1D72640A005FCE31 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC8D1D72640A005FCE31 /* DataSource.swift */; };
+		86E2AC901D726433005FCE31 /* DataSourceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC8F1D726433005FCE31 /* DataSourceState.swift */; };
+		86E2AC921D72644C005FCE31 /* DataSourceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC911D72644C005FCE31 /* DataSourceSection.swift */; };
+		86E2AC941D726464005FCE31 /* DataSourceMutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC931D726464005FCE31 /* DataSourceMutable.swift */; };
+		86E2AC961D726481005FCE31 /* DataSourceChangeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC951D726481005FCE31 /* DataSourceChangeset.swift */; };
+		86E2AC981D7264A9005FCE31 /* DataSourceAppliedChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC971D7264A9005FCE31 /* DataSourceAppliedChanges.swift */; };
+		86E2AC9A1D7264DE005FCE31 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC991D7264DE005FCE31 /* Model.swift */; };
+		86E2ACA21D7265B9005FCE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACA11D7265B9005FCE31 /* AppDelegate.swift */; };
+		86E2ACA41D7265B9005FCE31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACA31D7265B9005FCE31 /* ViewController.swift */; };
+		86E2ACA71D7265B9005FCE31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACA51D7265B9005FCE31 /* Main.storyboard */; };
+		86E2ACA91D7265B9005FCE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACA81D7265B9005FCE31 /* Assets.xcassets */; };
+		86E2ACAC1D7265B9005FCE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACAA1D7265B9005FCE31 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +41,20 @@
 		86E2AC7A1D7263E0005FCE31 /* MojaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MojaveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MojaveTests.swift; sourceTree = "<group>"; };
 		86E2AC811D7263E0005FCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86E2AC8D1D72640A005FCE31 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		86E2AC8F1D726433005FCE31 /* DataSourceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceState.swift; sourceTree = "<group>"; };
+		86E2AC911D72644C005FCE31 /* DataSourceSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceSection.swift; sourceTree = "<group>"; };
+		86E2AC931D726464005FCE31 /* DataSourceMutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceMutable.swift; sourceTree = "<group>"; };
+		86E2AC951D726481005FCE31 /* DataSourceChangeset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceChangeset.swift; sourceTree = "<group>"; };
+		86E2AC971D7264A9005FCE31 /* DataSourceAppliedChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceAppliedChanges.swift; sourceTree = "<group>"; };
+		86E2AC991D7264DE005FCE31 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		86E2AC9F1D7265B9005FCE31 /* MojaveTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MojaveTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86E2ACA11D7265B9005FCE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		86E2ACA31D7265B9005FCE31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		86E2ACA61D7265B9005FCE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86E2ACA81D7265B9005FCE31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		86E2ACAB1D7265B9005FCE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		86E2ACAD1D7265B9005FCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86E2AC9C1D7265B9005FCE31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +88,7 @@
 			children = (
 				86E2AC731D7263E0005FCE31 /* Mojave */,
 				86E2AC7E1D7263E0005FCE31 /* MojaveTests */,
+				86E2ACA01D7265B9005FCE31 /* MojaveTestApp */,
 				86E2AC721D7263E0005FCE31 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +98,7 @@
 			children = (
 				86E2AC711D7263E0005FCE31 /* Mojave.framework */,
 				86E2AC7A1D7263E0005FCE31 /* MojaveTests.xctest */,
+				86E2AC9F1D7265B9005FCE31 /* MojaveTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +106,7 @@
 		86E2AC731D7263E0005FCE31 /* Mojave */ = {
 			isa = PBXGroup;
 			children = (
+				86E2AC8B1D7263F2005FCE31 /* Core */,
 				86E2AC741D7263E0005FCE31 /* Mojave.h */,
 				86E2AC751D7263E0005FCE31 /* Info.plist */,
 			);
@@ -84,6 +120,41 @@
 				86E2AC811D7263E0005FCE31 /* Info.plist */,
 			);
 			path = MojaveTests;
+			sourceTree = "<group>";
+		};
+		86E2AC8B1D7263F2005FCE31 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				86E2AC8C1D7263FB005FCE31 /* DataSource */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		86E2AC8C1D7263FB005FCE31 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				86E2AC991D7264DE005FCE31 /* Model.swift */,
+				86E2AC8D1D72640A005FCE31 /* DataSource.swift */,
+				86E2AC8F1D726433005FCE31 /* DataSourceState.swift */,
+				86E2AC911D72644C005FCE31 /* DataSourceSection.swift */,
+				86E2AC931D726464005FCE31 /* DataSourceMutable.swift */,
+				86E2AC951D726481005FCE31 /* DataSourceChangeset.swift */,
+				86E2AC971D7264A9005FCE31 /* DataSourceAppliedChanges.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		86E2ACA01D7265B9005FCE31 /* MojaveTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				86E2ACA11D7265B9005FCE31 /* AppDelegate.swift */,
+				86E2ACA31D7265B9005FCE31 /* ViewController.swift */,
+				86E2ACA51D7265B9005FCE31 /* Main.storyboard */,
+				86E2ACA81D7265B9005FCE31 /* Assets.xcassets */,
+				86E2ACAA1D7265B9005FCE31 /* LaunchScreen.storyboard */,
+				86E2ACAD1D7265B9005FCE31 /* Info.plist */,
+			);
+			path = MojaveTestApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +207,23 @@
 			productReference = 86E2AC7A1D7263E0005FCE31 /* MojaveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		86E2AC9E1D7265B9005FCE31 /* MojaveTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86E2ACAE1D7265B9005FCE31 /* Build configuration list for PBXNativeTarget "MojaveTestApp" */;
+			buildPhases = (
+				86E2AC9B1D7265B9005FCE31 /* Sources */,
+				86E2AC9C1D7265B9005FCE31 /* Frameworks */,
+				86E2AC9D1D7265B9005FCE31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MojaveTestApp;
+			productName = MojaveTestApp;
+			productReference = 86E2AC9F1D7265B9005FCE31 /* MojaveTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -149,9 +237,15 @@
 					86E2AC701D7263E0005FCE31 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = M2RR26GX86;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					86E2AC791D7263E0005FCE31 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = M2RR26GX86;
+						ProvisioningStyle = Automatic;
+					};
+					86E2AC9E1D7265B9005FCE31 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = M2RR26GX86;
 						ProvisioningStyle = Automatic;
@@ -164,6 +258,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 86E2AC671D7263E0005FCE31;
 			productRefGroup = 86E2AC721D7263E0005FCE31 /* Products */;
@@ -172,6 +267,7 @@
 			targets = (
 				86E2AC701D7263E0005FCE31 /* Mojave */,
 				86E2AC791D7263E0005FCE31 /* MojaveTests */,
+				86E2AC9E1D7265B9005FCE31 /* MojaveTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -191,6 +287,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		86E2AC9D1D7265B9005FCE31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E2ACAC1D7265B9005FCE31 /* LaunchScreen.storyboard in Resources */,
+				86E2ACA91D7265B9005FCE31 /* Assets.xcassets in Resources */,
+				86E2ACA71D7265B9005FCE31 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -198,6 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E2AC9A1D7264DE005FCE31 /* Model.swift in Sources */,
+				86E2AC961D726481005FCE31 /* DataSourceChangeset.swift in Sources */,
+				86E2AC921D72644C005FCE31 /* DataSourceSection.swift in Sources */,
+				86E2AC901D726433005FCE31 /* DataSourceState.swift in Sources */,
+				86E2AC8E1D72640A005FCE31 /* DataSource.swift in Sources */,
+				86E2AC981D7264A9005FCE31 /* DataSourceAppliedChanges.swift in Sources */,
+				86E2AC941D726464005FCE31 /* DataSourceMutable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +319,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86E2AC9B1D7265B9005FCE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86E2ACA41D7265B9005FCE31 /* ViewController.swift in Sources */,
+				86E2ACA21D7265B9005FCE31 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +340,25 @@
 			targetProxy = 86E2AC7C1D7263E0005FCE31 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		86E2ACA51D7265B9005FCE31 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86E2ACA61D7265B9005FCE31 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		86E2ACAA1D7265B9005FCE31 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86E2ACAB1D7265B9005FCE31 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		86E2AC831D7263E0005FCE31 /* Debug */ = {
@@ -322,6 +463,7 @@
 		86E2AC861D7263E0005FCE31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M2RR26GX86;
@@ -334,6 +476,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewjmc.Mojave;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +484,7 @@
 		86E2AC871D7263E0005FCE31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M2RR26GX86;
@@ -360,6 +504,7 @@
 		86E2AC891D7263E0005FCE31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = M2RR26GX86;
 				INFOPLIST_FILE = MojaveTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,10 +517,37 @@
 		86E2AC8A1D7263E0005FCE31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = M2RR26GX86;
 				INFOPLIST_FILE = MojaveTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.andrewjmc.MojaveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		86E2ACAF1D7265B9005FCE31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M2RR26GX86;
+				INFOPLIST_FILE = MojaveTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewjmc.MojaveTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		86E2ACB01D7265B9005FCE31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = M2RR26GX86;
+				INFOPLIST_FILE = MojaveTestApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.andrewjmc.MojaveTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -406,6 +578,14 @@
 			buildConfigurations = (
 				86E2AC891D7263E0005FCE31 /* Debug */,
 				86E2AC8A1D7263E0005FCE31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		86E2ACAE1D7265B9005FCE31 /* Build configuration list for PBXNativeTarget "MojaveTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86E2ACAF1D7265B9005FCE31 /* Debug */,
+				86E2ACB01D7265B9005FCE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
