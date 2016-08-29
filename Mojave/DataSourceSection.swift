@@ -9,7 +9,7 @@
 import Foundation
 
 public struct DataSourceSection {
-    internal(set) public var items = [DataSourceModel]()
+    public var items = [DataSourceModel]()
     
     public init(items: [DataSourceModel]) {
         self.items = items

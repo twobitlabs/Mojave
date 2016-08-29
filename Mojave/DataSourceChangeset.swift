@@ -23,6 +23,12 @@ public struct DataSourceChangeset {
     private(set) public var insertedSections: InsertedSections
     private(set) public var insertedItems: InsertedItems
     
+    public static func with(updatedItems: UpdatedItems) -> DataSourceChangeset {
+        var c = DataSourceChangeset.empty
+        c.append(updatedItems: updatedItems)
+        return c
+    }
+    
     public static func with(removedItems: RemovedItems) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(removedItems: removedItems)
@@ -51,6 +57,10 @@ public struct DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(insertedItems: insertedItems)
         return c
+    }
+    
+    public mutating func append(updatedItems: UpdatedItems) {
+        self.updatedItems.append(updatedItems)
     }
     
     public mutating func append(removedItems: RemovedItems) {

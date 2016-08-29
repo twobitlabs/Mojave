@@ -19,7 +19,7 @@ extension DataSourceDelegate {
 
 public struct DataSource {
     public weak var delegate: DataSourceDelegate?
-    private(set) public var state: DataSourceState
+    public var state: DataSourceState
     
     public init(initialState: DataSourceState = .empty, delegate: DataSourceDelegate? = nil) {
         self.delegate = delegate

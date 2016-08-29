@@ -25,6 +25,9 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
         let initialState = DataSourceState(sections: [DataSourceSection(items: [])])
         dataSource = DataSource(initialState: initialState)
         
+        
+        dataSource.state.sections[0].items[0] = TestModel()
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -57,5 +60,7 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         return cell
     }
+    
+    func dataSource(_ dataSource: DataSource, didModify previousState: DataSourceState, with changes: DataSourceAppliedChanges) {}
 
 }

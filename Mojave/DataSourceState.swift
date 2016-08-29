@@ -9,7 +9,7 @@
 import Foundation
 
 public struct DataSourceState {
-    private(set) public var sections: [DataSourceSection]
+    public var sections: [DataSourceSection]
     
     public init(sections: [DataSourceSection]) {
         self.sections = sections
