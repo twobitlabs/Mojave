@@ -44,7 +44,7 @@ public struct DataSourceState {
 }
 
 extension DataSourceState {
-    public static var defaultState: DataSourceState {
-        return DataSourceState(sections: [DataSourceSection()])
+    public static var empty: DataSourceState {
+        return DataSourceState(sections: [])
     }
 }

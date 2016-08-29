@@ -9,28 +9,44 @@
 import XCTest
 @testable import Mojave
 
-class MojaveTests: XCTestCase {
+struct TestModel: DataSourceModel {
+    var name: String
+}
+
+class MojaveTests: XCTestCase, DataSourceDelegate {
+    
+    var dataSource: DataSource!
+    var testModel: TestModel!
+    
+    var dataSourceCollectionView: UICollectionView? {
+        return nil
+    }
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        testModel = TestModel(name: "Andrew")
+        dataSource = DataSource()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        testModel = nil
+        dataSource = nil
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testInsertion() {
+        let existing = dataSource.state
+        XCTAssertTrue(existing.numberOfSections == 0)
+        
+        let sectionsToInsert = IndexSet(integer: 0)
+        let itemsToInsert = [IndexPath(item: 0, section: 0) : testModel!]
+        var changeset = DataSourceChangeset.empty.with(insertedSections: sectionsToInsert)
+        changeset = changeset.with(insertedItems: itemsToInsert)
+        dataSource.apply(changeset: changeset)
+        
+        let new = dataSource.state
+        XCTAssertTrue(new.numberOfSections == 1)
+        XCTAssertTrue(new.numberOfItems(in: 0) == 1)
     }
     
 }

@@ -18,10 +18,11 @@
 		86E2AC981D7264A9005FCE31 /* DataSourceAppliedChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC971D7264A9005FCE31 /* DataSourceAppliedChanges.swift */; };
 		86E2AC9A1D7264DE005FCE31 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC991D7264DE005FCE31 /* Model.swift */; };
 		86E2ACA21D7265B9005FCE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACA11D7265B9005FCE31 /* AppDelegate.swift */; };
-		86E2ACA41D7265B9005FCE31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACA31D7265B9005FCE31 /* ViewController.swift */; };
 		86E2ACA71D7265B9005FCE31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACA51D7265B9005FCE31 /* Main.storyboard */; };
 		86E2ACA91D7265B9005FCE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACA81D7265B9005FCE31 /* Assets.xcassets */; };
 		86E2ACAC1D7265B9005FCE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACAA1D7265B9005FCE31 /* LaunchScreen.storyboard */; };
+		86E2ACB21D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACB11D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift */; };
+		86E2ACB41D737FEF005FCE31 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACB31D737FEF005FCE31 /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,11 +51,12 @@
 		86E2AC991D7264DE005FCE31 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		86E2AC9F1D7265B9005FCE31 /* MojaveTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MojaveTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E2ACA11D7265B9005FCE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		86E2ACA31D7265B9005FCE31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		86E2ACA61D7265B9005FCE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86E2ACA81D7265B9005FCE31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86E2ACAB1D7265B9005FCE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86E2ACAD1D7265B9005FCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86E2ACB11D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceTestStateBuilder.swift; sourceTree = "<group>"; };
+		86E2ACB31D737FEF005FCE31 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */,
 				86E2AC811D7263E0005FCE31 /* Info.plist */,
+				86E2ACB11D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift */,
 			);
 			path = MojaveTests;
 			sourceTree = "<group>";
@@ -148,11 +151,11 @@
 			isa = PBXGroup;
 			children = (
 				86E2ACA11D7265B9005FCE31 /* AppDelegate.swift */,
-				86E2ACA31D7265B9005FCE31 /* ViewController.swift */,
 				86E2ACA51D7265B9005FCE31 /* Main.storyboard */,
 				86E2ACA81D7265B9005FCE31 /* Assets.xcassets */,
 				86E2ACAA1D7265B9005FCE31 /* LaunchScreen.storyboard */,
 				86E2ACAD1D7265B9005FCE31 /* Info.plist */,
+				86E2ACB31D737FEF005FCE31 /* CollectionViewController.swift */,
 			);
 			path = MojaveTestApp;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E2ACB21D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift in Sources */,
 				86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86E2ACA41D7265B9005FCE31 /* ViewController.swift in Sources */,
+				86E2ACB41D737FEF005FCE31 /* CollectionViewController.swift in Sources */,
 				86E2ACA21D7265B9005FCE31 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
