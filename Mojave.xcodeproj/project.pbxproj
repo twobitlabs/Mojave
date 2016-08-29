@@ -23,6 +23,7 @@
 		86E2ACAC1D7265B9005FCE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86E2ACAA1D7265B9005FCE31 /* LaunchScreen.storyboard */; };
 		86E2ACB21D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACB11D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift */; };
 		86E2ACB41D737FEF005FCE31 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACB31D737FEF005FCE31 /* CollectionViewController.swift */; };
+		86E2ACBC1D73EB37005FCE31 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2ACBB1D73EB37005FCE31 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		86E2ACAD1D7265B9005FCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86E2ACB11D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceTestStateBuilder.swift; sourceTree = "<group>"; };
 		86E2ACB31D737FEF005FCE31 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		86E2ACBB1D73EB37005FCE31 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				86E2AC8C1D7263FB005FCE31 /* DataSource */,
+				86E2ACBB1D73EB37005FCE31 /* Utility.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				86E2AC961D726481005FCE31 /* DataSourceChangeset.swift in Sources */,
 				86E2AC921D72644C005FCE31 /* DataSourceSection.swift in Sources */,
 				86E2AC901D726433005FCE31 /* DataSourceState.swift in Sources */,
+				86E2ACBC1D73EB37005FCE31 /* Utility.swift in Sources */,
 				86E2AC8E1D72640A005FCE31 /* DataSource.swift in Sources */,
 				86E2AC981D7264A9005FCE31 /* DataSourceAppliedChanges.swift in Sources */,
 				86E2AC941D726464005FCE31 /* DataSourceMutable.swift in Sources */,

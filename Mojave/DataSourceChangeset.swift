@@ -23,28 +23,54 @@ public struct DataSourceChangeset {
     private(set) public var insertedSections: InsertedSections
     private(set) public var insertedItems: InsertedItems
     
-    public func with(updatedItems: UpdatedItems) -> DataSourceChangeset {
-        var c = self; c.updatedItems = updatedItems; return c
+    public static func with(removedItems: RemovedItems) -> DataSourceChangeset {
+        var c = DataSourceChangeset.empty
+        c.append(removedItems: removedItems)
+        return c
     }
     
-    public func with(removedItems: RemovedItems) -> DataSourceChangeset {
-        var c = self; c.removedItems = removedItems; return c
+    public static func with(removedSections: RemovedSections) -> DataSourceChangeset {
+        var c = DataSourceChangeset.empty
+        c.append(removedSections: removedSections)
+        return c
     }
     
-    public func with(removedSections: RemovedSections) -> DataSourceChangeset {
-        var c = self; c.removedSections = removedSections; return c
+    public static func with(movedItems: MovedItems) -> DataSourceChangeset {
+        var c = DataSourceChangeset.empty
+        c.append(movedItems: movedItems)
+        return c
     }
     
-    public func with(movedItems: MovedItems) -> DataSourceChangeset {
-        var c = self; c.movedItems = movedItems; return c
+    public static func with(insertedSections: InsertedSections) -> DataSourceChangeset {
+        var c = DataSourceChangeset.empty
+        c.append(insertedSections: insertedSections)
+        return c
     }
     
-    public func with(insertedSections: InsertedSections) -> DataSourceChangeset {
-        var c = self; c.insertedSections = insertedSections; return c
+    public static func with(insertedItems: InsertedItems) -> DataSourceChangeset {
+        var c = DataSourceChangeset.empty
+        c.append(insertedItems: insertedItems)
+        return c
     }
     
-    public func with(insertedItems: InsertedItems) -> DataSourceChangeset {
-        var c = self; c.insertedItems = insertedItems; return c
+    public mutating func append(removedItems: RemovedItems) {
+        self.removedItems.append(removedItems)
+    }
+    
+    public mutating func append(removedSections: RemovedSections) {
+        self.removedSections.append(removedSections)
+    }
+    
+    public mutating func append(movedItems: MovedItems) {
+        self.movedItems.append(movedItems)
+    }
+    
+    public mutating func append(insertedSections: InsertedSections) {
+        self.insertedSections.append(insertedSections)
+    }
+    
+    public mutating func append(insertedItems: InsertedItems) {
+        self.insertedItems.append(insertedItems)
     }
     
     public init(updatedItems: UpdatedItems,
