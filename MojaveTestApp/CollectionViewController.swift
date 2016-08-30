@@ -11,7 +11,9 @@ import Mojave
 
 private let reuseIdentifier = "Cell"
 
-struct TestModel: DataSourceModel {}
+struct TestModel: DataSourceModel {
+    let color: UIColor
+}
 
 class CollectionViewController: UICollectionViewController, DataSourceDelegate {
 
@@ -24,9 +26,6 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
     init() {
         let initialState = DataSourceState(sections: [DataSourceSection(items: [])])
         dataSource = DataSource(initialState: initialState)
-        
-        
-        dataSource.state.sections[0].items[0] = TestModel()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -44,6 +43,24 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        var changeset = DataSourceChangeset.empty
+        changeset.append(insertedItems: [IndexPath(item: 0, section: 0) : TestModel(color: .blue)])
+        changeset.append(insertedItems: [IndexPath(item: 1, section: 0) : TestModel(color: .red)])
+        changeset.append(insertedItems: [IndexPath(item: 2, section: 0) : TestModel(color: .green)])
+        changeset.append(insertedItems: [IndexPath(item: 3, section: 0) : TestModel(color: .orange)])
+        changeset.append(insertedItems: [IndexPath(item: 4, section: 0) : TestModel(color: .purple)])
+        changeset.append(insertedItems: [IndexPath(item: 5, section: 0) : TestModel(color: .yellow)])
+        changeset.append(insertedItems: [IndexPath(item: 6, section: 0) : TestModel(color: .brown)])
+        changeset.append(insertedItems: [IndexPath(item: 7, section: 0) : TestModel(color: .gray)])
+        changeset.append(insertedItems: [IndexPath(item: 8, section: 0) : TestModel(color: .cyan)])
+        changeset.append(insertedItems: [IndexPath(item: 8, section: 0) : TestModel(color: .magenta)])
+        
+        dataSource.apply(changeset: changeset)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -58,9 +75,24 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+        let item = dataSource.state.item(at: indexPath)
+        
+        if let item = item as? TestModel {
+            cell.contentView.backgroundColor = item.color
+        } else {
+            fatalError("INVALID CELL")
+        }
+
         return cell
     }
     
     func dataSource(_ dataSource: DataSource, didModify previousState: DataSourceState, with changes: DataSourceAppliedChanges) {}
 
+}
+
+extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 100)
+    }
 }

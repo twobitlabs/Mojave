@@ -56,12 +56,19 @@ struct DataSourceChangesetModification: DataSourceMutable {
         }
         
         // insert items
+        
+        let sortedInsertions = changeset.insertedItems.sorted {
+            if $0.key.section == $1.key.section {
+                return $0.key.item < $1.key.item
+            } else {
+                return $0.key.section < $1.key.section
+            }
+        }
         movedInsertions.sorted().lazy.reversed().forEach {
             sections[$0.section].items.insert(oldState.sections[$0.section].items[$0.item], at: $0.item)
         }
-        let insertionIndexPaths = changeset.insertedItems.map { return $0.key }
-        insertionIndexPaths.sorted().lazy.reversed().forEach {
-            sections[$0.section].items.insert(changeset.insertedItems[$0]!, at: $0.item)
+        for insertion in sortedInsertions {
+            sections[insertion.key.section].items.insert(insertion.value, at: insertion.key.item)
         }
         
         // return new state
