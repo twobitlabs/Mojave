@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86111F081D76406100F1E40B /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86111F071D76406100F1E40B /* ConsistencyManager.swift */; };
 		86E2AC7B1D7263E0005FCE31 /* Mojave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; };
 		86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */; };
 		86E2AC821D7263E0005FCE31 /* Mojave.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E2AC741D7263E0005FCE31 /* Mojave.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86111F071D76406100F1E40B /* ConsistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsistencyManager.swift; sourceTree = "<group>"; };
 		86E2AC711D7263E0005FCE31 /* Mojave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mojave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E2AC741D7263E0005FCE31 /* Mojave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mojave.h; sourceTree = "<group>"; };
 		86E2AC751D7263E0005FCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86111F061D76405100F1E40B /* Consistency */ = {
+			isa = PBXGroup;
+			children = (
+				86111F071D76406100F1E40B /* ConsistencyManager.swift */,
+			);
+			name = Consistency;
+			sourceTree = "<group>";
+		};
 		86E2AC671D7263E0005FCE31 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +140,7 @@
 		86E2AC8B1D7263F2005FCE31 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				86111F061D76405100F1E40B /* Consistency */,
 				86E2AC8C1D7263FB005FCE31 /* DataSource */,
 				86E2ACBB1D73EB37005FCE31 /* Utility.swift */,
 			);
@@ -316,6 +327,7 @@
 				86E2AC901D726433005FCE31 /* DataSourceState.swift in Sources */,
 				86E2ACBC1D73EB37005FCE31 /* Utility.swift in Sources */,
 				86E2AC8E1D72640A005FCE31 /* DataSource.swift in Sources */,
+				86111F081D76406100F1E40B /* ConsistencyManager.swift in Sources */,
 				86E2AC981D7264A9005FCE31 /* DataSourceAppliedChanges.swift in Sources */,
 				86E2AC941D726464005FCE31 /* DataSourceMutable.swift in Sources */,
 			);
@@ -580,6 +592,7 @@
 				86E2AC871D7263E0005FCE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86E2AC881D7263E0005FCE31 /* Build configuration list for PBXNativeTarget "MojaveTests" */ = {
 			isa = XCConfigurationList;
@@ -588,6 +601,7 @@
 				86E2AC8A1D7263E0005FCE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86E2ACAE1D7265B9005FCE31 /* Build configuration list for PBXNativeTarget "MojaveTestApp" */ = {
 			isa = XCConfigurationList;
@@ -596,6 +610,7 @@
 				86E2ACB01D7265B9005FCE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

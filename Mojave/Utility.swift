@@ -32,4 +32,6 @@ extension IndexSet {
     }
 }
 
-
+func dispatch_async_safe_main_queue(_ block: @escaping () -> Void) {
+    Thread.isMainThread ? block() : DispatchQueue.main.async(execute: block)
+}
