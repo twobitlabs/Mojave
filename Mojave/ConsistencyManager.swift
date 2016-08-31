@@ -8,8 +8,20 @@
 
 import Foundation
 
+public enum ConsistencyManagerError: Error {
+    case alreadyRegistered
+    case notRegistered
+}
+
 public protocol ConsistencyManagerListener: class {
-    func didUpdate(model: DataSourceModel)
+    func manager<T: DataSourceModel>(_ manager: ConsistencyManager, didUpdate modelType: T.Type, with model: T)
+    func listen<T: DataSourceModel>(to model: T.Type)
+}
+
+public extension ConsistencyManagerListener {
+    func listen<T: DataSourceModel>(to modelType: T.Type) {
+        ConsistencyManager.add(listener: self, for: modelType)
+    }
 }
 
 public final class ConsistencyManager {
@@ -17,48 +29,69 @@ public final class ConsistencyManager {
     private var listeners = [String : NSHashTable<AnyObject>]()
     private var models = [String : DataSourceModel]()
     
-    public static let sharedInstance = ConsistencyManager()
+    fileprivate static let sharedInstance = ConsistencyManager()
     
     internal init() {}
     
-    public func registerShared<T: DataSourceModel>(model: T) {
-        guard models[model._identifier] == nil else { fatalError("Model of type \(model.self) already registered.") }
+    internal func isRegistered<T: DataSourceModel>(model: T.Type) -> Bool {
+        return models[model.__identifier] != nil
+    }
+    
+    internal func registerShared<T: DataSourceModel>(model: T) throws {
+        guard models[model._identifier] == nil else { throw ConsistencyManagerError.alreadyRegistered }
         models[model._identifier] = model
     }
     
-    public func updateShared<T: DataSourceModel>(model: T) {
-        guard let _model = models[model._identifier] else { fatalError("Model \(model.self) not registered.") }
+    internal func updateShared<T: DataSourceModel>(model: T) throws {
+        guard let _model = models[model._identifier] else { throw ConsistencyManagerError.notRegistered }
         models[_model._identifier] = model
         notify(with: model)
     }
     
-    public func model<T: DataSourceModel>(forShared modelType: T.Type) -> T? {
-        guard let sharedModel = models[modelType.__identifer] as? T else { return nil }
+    internal func model<T: DataSourceModel>(forShared modelType: T.Type) -> T? {
+        guard let sharedModel = models[modelType.__identifier] as? T else { return nil }
         return sharedModel
     }
     
-    public func add<T: DataSourceModel>(listener: ConsistencyManagerListener, for modelType: T.Type) {
+    internal func add<T: DataSourceModel>(listener: ConsistencyManagerListener, for modelType: T.Type) {
         dispatch_async_safe_main_queue {
-            if self.listeners[modelType.__identifer] == nil {
-                self.listeners[modelType.__identifer] = NSHashTable(options: .weakMemory)
+            if self.listeners[modelType.__identifier] == nil {
+                self.listeners[modelType.__identifier] = NSHashTable(options: .weakMemory)
             }
             
-            self.listeners[modelType.__identifer]!.add(listener)
+            self.listeners[modelType.__identifier]!.add(listener)
         }
     }
     
     private func notify<T: DataSourceModel>(with model: T) {
         dispatch_async_safe_main_queue {
-            guard let newModel = self.models[model._identifier] else { fatalError("Misconfigured ConsistencyManager") }
+            guard let newModel = self.models[model._identifier] as? T else { fatalError("Misconfigured ConsistencyManager") }
             guard let listeners = self.listeners[model._identifier] else { return }
             
             let enumerator = listeners.objectEnumerator()
-            while let value: Any = enumerator.nextObject() {
-                if let value = value as? ConsistencyManagerListener {
-                    value.didUpdate(model: newModel)
+            while let listener: Any = enumerator.nextObject() {
+                if let listener = listener as? ConsistencyManagerListener {
+                    listener.manager(self, didUpdate: T.self, with: newModel)
                 }
             }
         }
     }
 }
 
+extension ConsistencyManager {
+    public static func isRegistered<T: DataSourceModel>(modelType: T.Type) -> Bool {
+        return sharedInstance.isRegistered(model: modelType)
+    }
+    public static func registerShared<T: DataSourceModel>(model: T) throws {
+        try sharedInstance.registerShared(model: model)
+    }
+    public static func updateShared<T: DataSourceModel>(model: T) throws {
+        try sharedInstance.updateShared(model: model)
+    }
+    public static func model<T: DataSourceModel>(forShared modelType: T.Type) -> T? {
+        return sharedInstance.model(forShared: modelType)
+    }
+    public static func add<T: DataSourceModel>(listener: ConsistencyManagerListener, for modelType: T.Type) {
+        sharedInstance.add(listener: listener, for: modelType)
+    }
+}

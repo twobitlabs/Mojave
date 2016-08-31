@@ -11,10 +11,10 @@ import Foundation
 public protocol DataSourceModel {}
 
 extension DataSourceModel {
-     static var __identifer: String {
+     static var __identifier: String {
         return String(describing: self)
     }
     var _identifier: String {
-        return type(of: self).__identifer
+        return type(of: self).__identifier
     }
 }
