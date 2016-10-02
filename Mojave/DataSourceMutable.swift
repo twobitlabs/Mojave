@@ -51,12 +51,16 @@ struct DataSourceChangesetModification: DataSourceMutable {
         }
         
         // insert sections
-        for sectionIndex in changeset.insertedSections.reversed() {
-            sections.insert(DataSourceSection(), at: sectionIndex)
+        let beginSectionSize = sections.count
+        var insertAccumulator = 0
+        for sectionIndex in changeset.insertedSections {
+            sections.insert(DataSourceSection(), at: sectionIndex + insertAccumulator)
+            if sectionIndex < beginSectionSize {
+                insertAccumulator += 1
+            }
         }
         
         // insert items
-        
         let sortedInsertions = changeset.insertedItems.sorted {
             if $0.key.section == $1.key.section {
                 return $0.key.item < $1.key.item
