@@ -51,13 +51,8 @@ struct DataSourceChangesetModification: DataSourceMutable {
         }
         
         // insert sections
-        let beginSectionSize = sections.count
-        var insertAccumulator = 0
         for sectionIndex in changeset.insertedSections {
-            sections.insert(DataSourceSection(), at: sectionIndex + insertAccumulator)
-            if sectionIndex < beginSectionSize {
-                insertAccumulator += 1
-            }
+            sections.insert(DataSourceSection(), at: sectionIndex)
         }
         
         // insert items
