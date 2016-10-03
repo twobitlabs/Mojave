@@ -10,6 +10,8 @@
 		86111F081D76406100F1E40B /* ConsistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86111F071D76406100F1E40B /* ConsistencyManager.swift */; };
 		862675AB1DA1B7310084CE0A /* ArrayDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862675AA1DA1B7310084CE0A /* ArrayDiff.swift */; };
 		862675AD1DA1B84C0084CE0A /* ArrayDiffUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862675AC1DA1B84C0084CE0A /* ArrayDiffUtils.swift */; };
+		866B51D01DA1D9FE00DBD49A /* Mojave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; };
+		866B51D11DA1D9FE00DBD49A /* Mojave.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		86E2AC7B1D7263E0005FCE31 /* Mojave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; };
 		86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */; };
 		86E2AC821D7263E0005FCE31 /* Mojave.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E2AC741D7263E0005FCE31 /* Mojave.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		866B51D21DA1D9FE00DBD49A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86E2AC681D7263E0005FCE31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86E2AC701D7263E0005FCE31;
+			remoteInfo = Mojave;
+		};
 		86E2AC7C1D7263E0005FCE31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 86E2AC681D7263E0005FCE31 /* Project object */;
@@ -38,6 +47,20 @@
 			remoteInfo = Mojave;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		866B51D41DA1D9FE00DBD49A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				866B51D11DA1D9FE00DBD49A /* Mojave.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		86111F071D76406100F1E40B /* ConsistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsistencyManager.swift; sourceTree = "<group>"; };
@@ -87,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866B51D01DA1D9FE00DBD49A /* Mojave.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,10 +269,12 @@
 				86E2AC9B1D7265B9005FCE31 /* Sources */,
 				86E2AC9C1D7265B9005FCE31 /* Frameworks */,
 				86E2AC9D1D7265B9005FCE31 /* Resources */,
+				866B51D41DA1D9FE00DBD49A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				866B51D31DA1D9FE00DBD49A /* PBXTargetDependency */,
 			);
 			name = MojaveTestApp;
 			productName = MojaveTestApp;
@@ -370,6 +396,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		866B51D31DA1D9FE00DBD49A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86E2AC701D7263E0005FCE31 /* Mojave */;
+			targetProxy = 866B51D21DA1D9FE00DBD49A /* PBXContainerItemProxy */;
+		};
 		86E2AC7D1D7263E0005FCE31 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 86E2AC701D7263E0005FCE31 /* Mojave */;
@@ -566,6 +597,7 @@
 		86E2ACAF1D7265B9005FCE31 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2RR26GX86;
 				INFOPLIST_FILE = MojaveTestApp/Info.plist;
@@ -579,6 +611,7 @@
 		86E2ACB01D7265B9005FCE31 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M2RR26GX86;
 				INFOPLIST_FILE = MojaveTestApp/Info.plist;

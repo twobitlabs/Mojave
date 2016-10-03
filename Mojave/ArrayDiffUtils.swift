@@ -41,7 +41,6 @@ extension NSIndexSet {
 // MARK: NSIndexSet support
 
 extension Array {
-
     subscript (indexes: NSIndexSet) -> [Element] {
         var result: [Element] = []
         result.reserveCapacity(indexes.count)

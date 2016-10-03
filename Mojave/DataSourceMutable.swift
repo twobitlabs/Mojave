@@ -51,9 +51,8 @@ struct DataSourceChangesetModification: DataSourceMutable {
         }
         
         // insert sections
-        for sectionIndex in changeset.insertedSections {
-            sections.insert(DataSourceSection(), at: sectionIndex)
-        }
+        let newSections = [DataSourceSection](repeating: DataSourceSection(), count: changeset.insertedSections.count)
+        sections.insertElements(newElements: newSections, atIndexes: changeset.insertedSections as NSIndexSet)
         
         // insert items
         let sortedInsertions = changeset.insertedItems.sorted {

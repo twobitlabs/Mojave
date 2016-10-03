@@ -47,16 +47,19 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
         super.viewDidAppear(animated)
         
         var changeset = DataSourceChangeset.empty
+        
+        changeset.append(insertedSections: IndexSet(integer: 0))
+        changeset.append(insertedSections: IndexSet(integer: 1))
         changeset.append(insertedItems: [IndexPath(item: 0, section: 0) : TestModel(color: .blue)])
         changeset.append(insertedItems: [IndexPath(item: 1, section: 0) : TestModel(color: .red)])
         changeset.append(insertedItems: [IndexPath(item: 2, section: 0) : TestModel(color: .green)])
         changeset.append(insertedItems: [IndexPath(item: 3, section: 0) : TestModel(color: .orange)])
         changeset.append(insertedItems: [IndexPath(item: 4, section: 0) : TestModel(color: .purple)])
-        changeset.append(insertedItems: [IndexPath(item: 5, section: 0) : TestModel(color: .yellow)])
-        changeset.append(insertedItems: [IndexPath(item: 6, section: 0) : TestModel(color: .brown)])
-        changeset.append(insertedItems: [IndexPath(item: 7, section: 0) : TestModel(color: .gray)])
-        changeset.append(insertedItems: [IndexPath(item: 8, section: 0) : TestModel(color: .cyan)])
-        changeset.append(insertedItems: [IndexPath(item: 8, section: 0) : TestModel(color: .magenta)])
+        changeset.append(insertedItems: [IndexPath(item: 0, section: 1) : TestModel(color: .yellow)])
+        changeset.append(insertedItems: [IndexPath(item: 1, section: 1) : TestModel(color: .brown)])
+        changeset.append(insertedItems: [IndexPath(item: 2, section: 1) : TestModel(color: .gray)])
+        changeset.append(insertedItems: [IndexPath(item: 3, section: 1) : TestModel(color: .cyan)])
+        changeset.append(insertedItems: [IndexPath(item: 4, section: 1) : TestModel(color: .magenta)])
         
         dataSource.apply(changeset: changeset)
     }
