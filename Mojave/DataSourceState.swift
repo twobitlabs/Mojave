@@ -24,6 +24,10 @@ public struct DataSourceState {
         return sections[section].items.count
     }
     
+    public func section(at index: Int) -> DataSourceSection {
+        return sections[index]
+    }
+    
     public func item(at indexPath: IndexPath) -> DataSourceModel {
         return sections[indexPath.section].items[indexPath.item]
     }
