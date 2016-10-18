@@ -8,11 +8,6 @@
 
 import Foundation
 
-public struct DataSourceSection {
-    public var items = [DataSourceModel]()
-    
-    public init(items: [DataSourceModel]) {
-        self.items = items
-    }
-    internal init() {}
+public protocol DataSourceSection {
+    var items: [DataSourceModel] { get set }
 }

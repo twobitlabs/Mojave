@@ -15,6 +15,10 @@ struct TestModel: DataSourceModel {
     let color: UIColor
 }
 
+struct Section: DataSourceSection {
+    var items = [DataSourceModel]()
+}
+
 class CollectionViewController: UICollectionViewController, DataSourceDelegate {
 
     var dataSource: DataSource
@@ -24,14 +28,14 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
     }
     
     init() {
-        let initialState = DataSourceState(sections: [DataSourceSection(items: [])])
+        let initialState = DataSourceState(sections: [Section()])
         dataSource = DataSource(initialState: initialState)
         
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        let initialState = DataSourceState(sections: [DataSourceSection(items: [])])
+        let initialState = DataSourceState(sections: [Section()])
         dataSource = DataSource(initialState: initialState)
         
         super.init(coder: aDecoder)
@@ -45,22 +49,15 @@ class CollectionViewController: UICollectionViewController, DataSourceDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         var changeset = DataSourceChangeset.empty
+        let firstSectionItems = [TestModel(color: .blue),
+                                 TestModel(color: .red),
+                                 TestModel(color: .green),
+                                 TestModel(color: .orange),
+                                 TestModel(color: .purple)]
         
-        changeset.append(insertedSections: IndexSet(integer: 0))
-        changeset.append(insertedSections: IndexSet(integer: 1))
-        changeset.append(insertedItems: [IndexPath(item: 0, section: 0) : TestModel(color: .blue)])
-        changeset.append(insertedItems: [IndexPath(item: 1, section: 0) : TestModel(color: .red)])
-        changeset.append(insertedItems: [IndexPath(item: 2, section: 0) : TestModel(color: .green)])
-        changeset.append(insertedItems: [IndexPath(item: 3, section: 0) : TestModel(color: .orange)])
-        changeset.append(insertedItems: [IndexPath(item: 4, section: 0) : TestModel(color: .purple)])
-        changeset.append(insertedItems: [IndexPath(item: 0, section: 1) : TestModel(color: .yellow)])
-        changeset.append(insertedItems: [IndexPath(item: 1, section: 1) : TestModel(color: .brown)])
-        changeset.append(insertedItems: [IndexPath(item: 2, section: 1) : TestModel(color: .gray)])
-        changeset.append(insertedItems: [IndexPath(item: 3, section: 1) : TestModel(color: .cyan)])
-        changeset.append(insertedItems: [IndexPath(item: 4, section: 1) : TestModel(color: .magenta)])
-        
+        let newSection = Section(items: firstSectionItems)
+        changeset.append(insertedSections: [0 : newSection])
         dataSource.apply(changeset: changeset)
     }
     

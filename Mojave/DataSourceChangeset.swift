@@ -9,86 +9,79 @@
 import Foundation
 
 public struct DataSourceChangeset {
-    public typealias UpdatedItems = [IndexPath : DataSourceModel]
-    public typealias RemovedItems = Set<IndexPath>
-    public typealias RemovedSections = IndexSet
-    public typealias MovedItems = [IndexPath: IndexPath]
-    public typealias InsertedSections = IndexSet
-    public typealias InsertedItems = [IndexPath : DataSourceModel]
+    private(set) public var updatedItems: [IndexPath : DataSourceModel]
+    private(set) public var removedItems: Set<IndexPath>
+    private(set) public var removedSections: IndexSet
+    private(set) public var movedItems: [IndexPath: IndexPath]
+    private(set) public var insertedSections: [Int : DataSourceSection]
+    private(set) public var insertedItems: [IndexPath : DataSourceModel]
     
-    private(set) public var updatedItems: UpdatedItems
-    private(set) public var removedItems: RemovedItems
-    private(set) public var removedSections: RemovedSections
-    private(set) public var movedItems: MovedItems
-    private(set) public var insertedSections: InsertedSections
-    private(set) public var insertedItems: InsertedItems
-    
-    public static func with(updatedItems: UpdatedItems) -> DataSourceChangeset {
+    public static func with(updatedItems: [IndexPath : DataSourceModel]) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(updatedItems: updatedItems)
         return c
     }
     
-    public static func with(removedItems: RemovedItems) -> DataSourceChangeset {
+    public static func with(removedItems: Set<IndexPath>) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(removedItems: removedItems)
         return c
     }
     
-    public static func with(removedSections: RemovedSections) -> DataSourceChangeset {
+    public static func with(removedSections: IndexSet) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(removedSections: removedSections)
         return c
     }
     
-    public static func with(movedItems: MovedItems) -> DataSourceChangeset {
+    public static func with(movedItems: [IndexPath: IndexPath]) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(movedItems: movedItems)
         return c
     }
     
-    public static func with(insertedSections: InsertedSections) -> DataSourceChangeset {
+    public static func with(insertedSections: [Int : DataSourceSection]) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(insertedSections: insertedSections)
         return c
     }
     
-    public static func with(insertedItems: InsertedItems) -> DataSourceChangeset {
+    public static func with(insertedItems: [IndexPath : DataSourceModel]) -> DataSourceChangeset {
         var c = DataSourceChangeset.empty
         c.append(insertedItems: insertedItems)
         return c
     }
     
-    public mutating func append(updatedItems: UpdatedItems) {
+    public mutating func append(updatedItems: [IndexPath : DataSourceModel]) {
         self.updatedItems.append(updatedItems)
     }
     
-    public mutating func append(removedItems: RemovedItems) {
+    public mutating func append(removedItems: Set<IndexPath>) {
         self.removedItems.append(removedItems)
     }
     
-    public mutating func append(removedSections: RemovedSections) {
+    public mutating func append(removedSections: IndexSet) {
         self.removedSections.append(removedSections)
     }
     
-    public mutating func append(movedItems: MovedItems) {
+    public mutating func append(movedItems: [IndexPath: IndexPath]) {
         self.movedItems.append(movedItems)
     }
     
-    public mutating func append(insertedSections: InsertedSections) {
+    public mutating func append(insertedSections: [Int : DataSourceSection]) {
         self.insertedSections.append(insertedSections)
     }
     
-    public mutating func append(insertedItems: InsertedItems) {
+    public mutating func append(insertedItems: [IndexPath : DataSourceModel]) {
         self.insertedItems.append(insertedItems)
     }
     
-    public init(updatedItems: UpdatedItems,
-         removedItems: RemovedItems,
-         removedSections: RemovedSections,
-         movedItems: MovedItems,
-         insertedSections: InsertedSections,
-         insertedItems: InsertedItems) {
+    public init(updatedItems: [IndexPath : DataSourceModel],
+         removedItems: Set<IndexPath>,
+         removedSections: IndexSet,
+         movedItems: [IndexPath: IndexPath],
+         insertedSections: [Int : DataSourceSection],
+         insertedItems: [IndexPath : DataSourceModel]) {
         self.updatedItems = updatedItems
         self.removedItems = removedItems
         self.removedSections = removedSections
@@ -100,11 +93,11 @@ public struct DataSourceChangeset {
 
 extension DataSourceChangeset {
     public static var empty: DataSourceChangeset {
-        return DataSourceChangeset(updatedItems: UpdatedItems(),
-                                   removedItems: RemovedItems(),
-                                   removedSections: RemovedSections(),
-                                   movedItems: MovedItems(),
-                                   insertedSections: InsertedSections(),
-                                   insertedItems: InsertedItems())
+        return DataSourceChangeset(updatedItems: [IndexPath : DataSourceModel](),
+                                   removedItems: Set<IndexPath>(),
+                                   removedSections: IndexSet(),
+                                   movedItems: [IndexPath: IndexPath](),
+                                   insertedSections: [Int : DataSourceSection](),
+                                   insertedItems: [IndexPath : DataSourceModel]())
     }
 }

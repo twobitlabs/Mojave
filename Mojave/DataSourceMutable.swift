@@ -50,9 +50,13 @@ struct DataSourceChangesetModification: DataSourceMutable {
             sections.remove(at: sectionIndex)
         }
         
-        // insert sections
-        let newSections = [DataSourceSection](repeating: DataSourceSection(), count: changeset.insertedSections.count)
-        sections.insertElements(newElements: newSections, atIndexes: changeset.insertedSections as NSIndexSet)
+        var newSections = [DataSourceSection]()
+        var newSectionIndicies = IndexSet()
+        changeset.insertedSections.forEach {
+            newSectionIndicies.append(IndexSet(integer: $0.key))
+            newSections.append($0.value)
+        }
+        sections.insertElements(newElements: newSections, atIndexes: newSectionIndicies as NSIndexSet)
         
         // insert items
         let sortedInsertions = changeset.insertedItems.sorted {
@@ -75,7 +79,7 @@ struct DataSourceChangesetModification: DataSourceMutable {
                                                       removedIndexPaths: changeset.removedItems,
                                                       removedSections: changeset.removedSections,
                                                       movedIndexPaths: changeset.movedItems,
-                                                      insertedSections: changeset.insertedSections,
+                                                      insertedSections: newSectionIndicies,
                                                       insertedIndexPaths: Set(changeset.insertedItems.keys))
         
         return DataSourceChange(state: newState, appliedChanges: appliedChanges)
