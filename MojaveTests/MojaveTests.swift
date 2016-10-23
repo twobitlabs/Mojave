@@ -9,10 +9,6 @@
 import XCTest
 @testable import Mojave
 
-struct TestModel: DataSourceModel {
-    var name: String
-}
-
 class MojaveTests: XCTestCase, DataSourceDelegate {
     
     var dataSource: DataSource!
@@ -38,15 +34,13 @@ class MojaveTests: XCTestCase, DataSourceDelegate {
         let existing = dataSource.state
         XCTAssertTrue(existing.numberOfSections == 0)
         
-        let sectionsToInsert = IndexSet(integer: 0)
-        let itemsToInsert = [IndexPath(item: 0, section: 0) : testModel!]
-        var changeset = DataSourceChangeset.empty.with(insertedSections: sectionsToInsert)
-        changeset = changeset.with(insertedItems: itemsToInsert)
-        dataSource.apply(changeset: changeset)
+        var change = DataSourceChangeset.empty
+        change.append(insertedSections: [0 : GenericSection(items: []), 1: GenericSection(items: [TestModel(name: "Hello")])])
+        dataSource.apply(changeset: change)
         
         let new = dataSource.state
-        XCTAssertTrue(new.numberOfSections == 1)
-        XCTAssertTrue(new.numberOfItems(in: 0) == 1)
+        XCTAssertTrue(new.numberOfSections == 2)
+        XCTAssertTrue(new.numberOfItems(in: 1) == 1)
     }
     
 }

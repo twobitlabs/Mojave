@@ -12,6 +12,10 @@
 		862675AD1DA1B84C0084CE0A /* ArrayDiffUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862675AC1DA1B84C0084CE0A /* ArrayDiffUtils.swift */; };
 		866B51D01DA1D9FE00DBD49A /* Mojave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; };
 		866B51D11DA1D9FE00DBD49A /* Mojave.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86BA71011DBD458C009D1B5A /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA70FE1DBD458C009D1B5A /* Archiver.swift */; };
+		86BA71021DBD458C009D1B5A /* ByteRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA70FF1DBD458C009D1B5A /* ByteRepresentable.swift */; };
+		86BA71031DBD458C009D1B5A /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA71001DBD458C009D1B5A /* Cacheable.swift */; };
+		86BA71071DBD69FC009D1B5A /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BA71061DBD69FC009D1B5A /* CacheTests.swift */; };
 		86E2AC7B1D7263E0005FCE31 /* Mojave.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E2AC711D7263E0005FCE31 /* Mojave.framework */; };
 		86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */; };
 		86E2AC821D7263E0005FCE31 /* Mojave.h in Headers */ = {isa = PBXBuildFile; fileRef = 86E2AC741D7263E0005FCE31 /* Mojave.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +70,10 @@
 		86111F071D76406100F1E40B /* ConsistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsistencyManager.swift; sourceTree = "<group>"; };
 		862675AA1DA1B7310084CE0A /* ArrayDiff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDiff.swift; sourceTree = "<group>"; };
 		862675AC1DA1B84C0084CE0A /* ArrayDiffUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDiffUtils.swift; sourceTree = "<group>"; };
+		86BA70FE1DBD458C009D1B5A /* Archiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
+		86BA70FF1DBD458C009D1B5A /* ByteRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteRepresentable.swift; sourceTree = "<group>"; };
+		86BA71001DBD458C009D1B5A /* Cacheable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
+		86BA71061DBD69FC009D1B5A /* CacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
 		86E2AC711D7263E0005FCE31 /* Mojave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mojave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86E2AC741D7263E0005FCE31 /* Mojave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mojave.h; sourceTree = "<group>"; };
 		86E2AC751D7263E0005FCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,6 +142,16 @@
 			name = ArrayDiff;
 			sourceTree = "<group>";
 		};
+		86BA70FD1DBD4578009D1B5A /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				86BA70FE1DBD458C009D1B5A /* Archiver.swift */,
+				86BA70FF1DBD458C009D1B5A /* ByteRepresentable.swift */,
+				86BA71001DBD458C009D1B5A /* Cacheable.swift */,
+			);
+			name = Caching;
+			sourceTree = "<group>";
+		};
 		86E2AC671D7263E0005FCE31 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +188,7 @@
 				86E2AC7F1D7263E0005FCE31 /* MojaveTests.swift */,
 				86E2AC811D7263E0005FCE31 /* Info.plist */,
 				86E2ACB11D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift */,
+				86BA71061DBD69FC009D1B5A /* CacheTests.swift */,
 			);
 			path = MojaveTests;
 			sourceTree = "<group>";
@@ -177,6 +196,7 @@
 		86E2AC8B1D7263F2005FCE31 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				86BA70FD1DBD4578009D1B5A /* Caching */,
 				862675A91DA1B7260084CE0A /* ArrayDiff */,
 				86111F061D76405100F1E40B /* Consistency */,
 				86E2AC8C1D7263FB005FCE31 /* DataSource */,
@@ -366,12 +386,15 @@
 				86E2AC921D72644C005FCE31 /* DataSourceSection.swift in Sources */,
 				86E2AC901D726433005FCE31 /* DataSourceState.swift in Sources */,
 				86E2ACBC1D73EB37005FCE31 /* Utility.swift in Sources */,
+				86BA71011DBD458C009D1B5A /* Archiver.swift in Sources */,
 				86E2AC8E1D72640A005FCE31 /* DataSource.swift in Sources */,
 				862675AB1DA1B7310084CE0A /* ArrayDiff.swift in Sources */,
 				86111F081D76406100F1E40B /* ConsistencyManager.swift in Sources */,
 				86E2AC981D7264A9005FCE31 /* DataSourceAppliedChanges.swift in Sources */,
+				86BA71031DBD458C009D1B5A /* Cacheable.swift in Sources */,
 				86E2AC941D726464005FCE31 /* DataSourceMutable.swift in Sources */,
 				862675AD1DA1B84C0084CE0A /* ArrayDiffUtils.swift in Sources */,
+				86BA71021DBD458C009D1B5A /* ByteRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +404,7 @@
 			files = (
 				86E2ACB21D72B9CA005FCE31 /* DataSourceTestStateBuilder.swift in Sources */,
 				86E2AC801D7263E0005FCE31 /* MojaveTests.swift in Sources */,
+				86BA71071DBD69FC009D1B5A /* CacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
