@@ -33,7 +33,7 @@ extension Bool: ByteRepresentable {}
 
 extension String: ByteRepresentable {
     public func toByteArray() -> [UInt8] {
-        return utf8CString.map { UInt8($0) }
+        return [UInt8](utf8)
     }
     public static func fromByteArray(_ buffer: [UInt8]) -> String {
         return String(cString: buffer)
